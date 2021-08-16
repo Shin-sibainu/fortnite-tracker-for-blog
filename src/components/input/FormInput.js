@@ -1,5 +1,6 @@
 import { Input, makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
+import { soloData } from "../../data/soloData";
 
 const useStyle = makeStyles((theme) => ({
   form: {
@@ -40,8 +41,8 @@ export const FormInput = (props) => {
       })
       .then((data) => {
         const solodefaultData = data.lifetime.all.defaultsolo;
-        //ソロデータを引数に渡して、soloDataを更新する。
-        setSoloData(solodefaultData);
+        const soloStatues = soloData(solodefaultData); //ここを追加
+        setSoloData(soloStatues); //ここを追加
       });
   };
 

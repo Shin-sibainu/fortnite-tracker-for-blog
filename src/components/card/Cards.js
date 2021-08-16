@@ -15,45 +15,21 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-export const Cards = () => {
+export const Cards = (props) => {
+  const { soloStatues } = props;
   const classes = useStyle();
 
-  const testData = [
-    {
-      id: 1,
-      name: "kdr",
-      number: 3.53, //ここの数字はAPIから後でとってくる
-    },
-    {
-      id: 2,
-      name: "placetop1",
-      number: 30,
-    },
-    {
-      id: 3,
-      name: "placetop10",
-      number: 50,
-    },
-    {
-      id: 4,
-      name: "placetop25",
-      number: 70,
-    },
-    {
-      id: 5,
-      name: "winrate",
-      number: 1.4,
-    },
-  ];
   return (
     <div className={classes.cardContainer}>
       <Grid container spacing={3} className={classes.grid}>
-        {testData &&
-          testData.map((data) => (
-            <Grid item xs={12} sm={3} key={data.id}>
+        {soloStatues &&
+          soloStatues.map((soloStatus) => (
+            <Grid item xs={12} sm={3} key={soloStatus.id}>
               <Paper className={classes.paper}>
-                <Typography>{data.name}</Typography>
-                <Typography style={{ fontSize: 30 }}>{data.number}</Typography>
+                <Typography>{soloStatus.name}</Typography>
+                <Typography style={{ fontSize: 30 }}>
+                  {soloStatus.number}
+                </Typography>
               </Paper>
             </Grid>
           ))}

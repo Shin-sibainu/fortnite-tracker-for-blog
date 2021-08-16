@@ -13,7 +13,7 @@ export const Main = () => {
       {/* propsでFormInputコンポーネントにsetSoloDataを渡す */}
       <FormInput setSoloData={setSoloData} />
       <div className="cardArea">
-        <Cards />
+        <Cards soloStatues={soloData} />
       </div>
     </div>
   );
